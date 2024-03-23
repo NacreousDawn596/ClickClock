@@ -6,6 +6,7 @@
 #
 build/
 a/
+android/gradle.properties
 *.pbxuser
 !default.pbxuser
 *.mode1v3
