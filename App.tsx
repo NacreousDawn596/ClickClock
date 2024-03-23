@@ -56,11 +56,6 @@ const App = () => {
                 <Animated.Text style={[styles.textt, styles.textb, { transform: [{ scale: minuteAnim.interpolate({ inputRange: [0, 60], outputRange: [1, 1.2] }) }] }]}>{formatTime(time.getMinutes())}</Animated.Text>
                 <Animated.Text style={[styles.textt, styles.texts, { transform: [{ scale: secondAnim.interpolate({ inputRange: [0, 60], outputRange: [1, 1.2] }) }] }]}>{formatTime(time.getSeconds())}</Animated.Text>
             </View>
-            <View style={[styles.timeContainer, { zIndex: 1 }]}>
-                <Animated.Text style={[styles.textt, styles.textb, { transform: [{ scale: hourAnim.interpolate({ inputRange: [0, 12], outputRange: [1, 1.2] }) }] }]}>{formatTime(nextTime.getHours() % 12)}</Animated.Text>
-                <Animated.Text style={[styles.textt, styles.textb, { transform: [{ scale: minuteAnim.interpolate({ inputRange: [0, 60], outputRange: [1, 1.2] }) }] }]}>{formatTime(nextTime.getMinutes())}</Animated.Text>
-                <Animated.Text style={[styles.textt, styles.texts, { transform: [{ scale: secondAnim.interpolate({ inputRange: [0, 60], outputRange: [1, 1.2] }) }] }]}>{formatTime(nextTime.getSeconds())}</Animated.Text>
-            </View>
         </View>
     );
 };
@@ -85,7 +80,10 @@ const styles = StyleSheet.create({
         marginTop: "5%"
     },
     textt: {
-        color: "#fff",
+        color: "#f0f8ffec",
+        textShadowColor: 'rgba(255, 255, 255, 0.6)', 
+        textShadowOffset: { width: 0, height: 0 }, 
+        textShadowRadius: 20, 
     },
     textb: {
         fontSize: 250,
