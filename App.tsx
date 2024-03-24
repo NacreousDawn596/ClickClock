@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Animated, Easing, StatusBar, PanResponder, Dimensions } from 'react-native';
+import ImagePicker from 'react-native-image-picker';
 
 const App = () => {
     StatusBar.setHidden(true, 'none');
     const [time, setTime] = useState(new Date());
+    const [nextTime, setNextTime] = useState(new Date(time.getTime() + 1000));
     const [hourAnim] = useState(new Animated.Value(0));
     const [minuteAnim] = useState(new Animated.Value(0));
     const [secondAnim] = useState(new Animated.Value(0));
@@ -16,6 +18,16 @@ const App = () => {
         ['rgb(240, 248, 255)', 'rgb(128, 0, 128)', 'rgba(128, 0, 128, 0.6)'],
         ["rgb(0, 0, 0)", "rgb(240, 248, 255)", 'rgba(240, 248, 255, 0.6)'],
     ]
+
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTime(new Date());
+            setNextTime(new Date(time.getTime() + 1000));
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [time]);
 
     useEffect(() => {
         Animated.timing(hourAnim, {
