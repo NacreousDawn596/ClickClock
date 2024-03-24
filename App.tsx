@@ -19,7 +19,6 @@ const App = () => {
         ["rgb(0, 0, 0)", "rgb(240, 248, 255)", 'rgba(240, 248, 255, 0.6)'],
     ]
 
-
     useEffect(() => {
         const interval = setInterval(() => {
             setTime(new Date());
@@ -86,6 +85,7 @@ const App = () => {
             }
         }
     });
+
 
     return (
         <View style={styles.container} {...panResponder.panHandlers}>
