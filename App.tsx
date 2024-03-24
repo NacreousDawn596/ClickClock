@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Animated, Easing, StatusBar, PanResponder, Dimensions } from 'react-native';
-import ImagePicker from 'react-native-image-picker';
 
 const App = () => {
     StatusBar.setHidden(true, 'none');
@@ -132,10 +131,6 @@ var styles = StyleSheet.create({
     texts: {
         fontSize: 20,
         fontWeight: "bold",
-    },
-    image: {
-        width: 100,
-        height: 100,
     },
 });
 
